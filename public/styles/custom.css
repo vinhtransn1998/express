@@ -1,0 +1,10 @@
+/* custom */
+
+.nav__setting {
+    width: 100%;
+}
+
+.input__setting {
+    width: 200px;
+    float: right;
+}

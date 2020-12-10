@@ -1,0 +1,17 @@
+extends ../layout/common
+block content
+    h1 Login
+    if errors
+        each err in errors
+            .alert.alert-danger= err
+    form(action="",method="POST")
+        .input-group.mb-3
+            .d-block
+                .input-group-prepend
+                    span#basic-addon1 Email
+                input#email.form-control(type='text', placeholder='Email', aria-label='Email', aria-describedby='basic-addon1',name="email",value = value?value.email:'')
+                
+                .input-group-prepend.mt-2
+                    span#basic-addon1 PassWord
+                input#password.form-control(type='password', placeholder='Password', aria-label='Password', aria-describedby='basic-addon1',name="password",value = value?value.password:'')
+                button.btn.btn-success.text-white.mt-2 Login

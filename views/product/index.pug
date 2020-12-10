@@ -1,0 +1,42 @@
+extends ../layout/common
+block content
+  .container-fluid
+  form.form-inline.my-2.my-lg-0(action="/product/search",method="GET")
+    input.form-control.mr-sm-2.input__setting(type='text',name="p", placeholder='Search', aria-label='Search')
+    button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+  br
+  nav(aria-label='Page navigation example')
+      ul.pagination.justify-content-center
+        li.page-item
+          a.page-link(href='?page='+pre) Previous
+        li.page-item
+          a.page-link(href='?page='+num)=num
+        li.page-item
+          a.page-link(href='?page='+num1)=num1
+        li.page-item
+          a.page-link(href='?page='+num2)=num2
+        li.page-item
+          a.page-link(href=num<=limitPage?'?page='+num1:'') Next
+  table.table.mt-2
+  .row
+    each val in product
+            .col.col-4.pb-3
+                .card(style='width: 18rem;height:400px;')
+                    img.card-img-top(src=''+val.image)
+                    .card-body
+                        h5.card-title(style="height:45px;")=val.name
+                        p.card-text=val.decription.slice(0,50)+'...'
+                        a.btn.btn-light.mt-2(href='/product/' + val.id) Xem thêm
+  nav(aria-label='Page navigation example')
+    ul.pagination.justify-content-center
+      li.page-item
+        a.page-link(href='?page='+pre) Previous
+      li.page-item
+        a.page-link(href='?page='+num)=num
+      li.page-item
+        a.page-link(href='?page='+num1)=num1
+      li.page-item
+        a.page-link(href='?page='+num2)=num2
+      li.page-item
+        a.page-link(href=num===num?'?page='+num1:'') Next
+        

@@ -1,0 +1,16 @@
+extends ../layout/common
+block content
+        if errors
+            each err in errors
+                .alert.alert-danger= err
+        form(action="/users/create",method="POST",enctype="multipart/form-data")
+            .form-group
+                label(for="name") Name
+                    input.form-control.ml-2(type='text', placeholder='Username', aria-label='Username', aria-describedby='basic-addon1',name="name",value = value?value.name:'')
+            .form-group
+                label(for="phone") Phone
+                    input.form-control.ml-2(type='text', placeholder='Phone Number', aria-label='Username', aria-describedby='basic-addon1',name="phone",value = value?value.phone:'')
+            .form-group
+                label(for="avatar") Avatar
+                    input.form-control-file.ml-2(type='file', placeholder='Chose File', aria-label='file',name="avatar")
+            button.btn.btn-success.text-white.mt-3 Create

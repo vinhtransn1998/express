@@ -1,0 +1,24 @@
+extends ../layout/common
+block content
+  .container-fluid
+  form.form-inline.my-2.my-lg-0(action="/users/search",method="GET")
+    input.form-control.mr-sm-2.input__setting(type='text',name="p", placeholder='Search', aria-label='Search')
+    button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+  br
+  button.btn.btn-success
+    a.text-white(href="/users/create") New
+  
+  table.table.mt-2
+    tr
+      th Avata
+      th Name
+      th Phone
+    each val in users
+      tr
+        td
+          img(src='../../routes'+val.avatar+'.jpg')
+        td=val.name
+        td=val.phone
+        td
+          a.btn.btn-light(href='/users/' + val.id) Views
+    
